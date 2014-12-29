@@ -20,9 +20,9 @@ input:
 	int 21h
 	cmp al,13
 	jz output
-	cmp al,48 ; 0
+	cmp al,48 ; cmp al,'0'
 	jb input
-	cmp al,57 ; 9
+	cmp al,57 ; cmp al,'9'
 	ja input
 	stosb
 	inc cx
