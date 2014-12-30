@@ -3,12 +3,12 @@
 .stack 256
 .code
 main:
-	mov ch,32 ;пробел
+	mov ch,1 ;пробел
 	mov bx,10
 output:
 	xor dx,dx
 	mov dl,ch
-	cmp ch,126 ; ~
+	cmp ch,127 ; ~
 	je exit
 print_symbol:
 	mov ah,02h

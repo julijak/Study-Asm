@@ -3,8 +3,8 @@
 .stack 256
 .data
 buf db ?
-min db ?
-max db ?
+min db 255
+max db 0
 max_msg db 13,10,'max $'
 min_msg db 13,10,'min $'
 .code
@@ -15,8 +15,6 @@ main:
 	xor dx,dx
 	xor cx,cx
 	mov ah,01h
-	mov max,0
-	mov min,255
 input:
 	int 21h
 	cmp al,13

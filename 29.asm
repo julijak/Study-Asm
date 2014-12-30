@@ -1,21 +1,20 @@
 ; Передать в функцию 3 элемента, сложить 1 и 3, вернуть результат через общую область памяти
 .model small
 .stack 256
-.data
-num1 dw 56
-num2 dw 45
-num3 dw 10
+common_data segment para common "data"
 result dw ?
+common_data ends
+.data 
 .code
-assume ds:@data
+assume ds:common_data
 main:
 	mov ax,@data
 	mov ds,ax
-	xor ax,ax
 	xor dx,dx
-	push num1
-	push num2
-	push num3
+	xor ax,ax
+	push 56
+	push 45
+	push 11
 	call sum
 	mov ax,result
 	xor cx,cx

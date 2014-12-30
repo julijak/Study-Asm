@@ -9,18 +9,19 @@ start:
 	mov ax,@data
 	mov ds,ax
 	mov ax,number
-	mov bx,100
-	xor dx,dx
-	div bx
-	mov cx,ax
-	mov ax,dx
 	mov bx,10
 	xor dx,dx
+	xor cx,cx
+del:
 	div bx
-	add cx,ax
 	add cx,dx
-	mov ax,cx ;в ax - сумма цифр
-	mov cx,0
+	xor dx,dx
+	cmp ax,0
+	jz next
+	jmp del
+next:
+	mov ax,cx ; sum
+	xor cx,cx
 divide: ;вывод числа
 	xor dx,dx
 	div bx

@@ -2,38 +2,29 @@
 .model small
 .stack 256
 .data
-num1 dw 7760
-buf dw ?
+num1 dw 27868
 .code
 main:
 	mov ax,@data	
 	mov ds,ax
-	xor dx,dx
-	mov bx,1000
+	xor dx,dx	
+	mov bx,10
 	mov	ax,num1
 	div bx
-	mov buf,ax
-	mov ax,dx
-	mov dx,0
-	mov bx,100
+	mov cx,dx
+del:
+	xor dx,dx
 	div bx
-	cmp ax,buf
-	jb  step2
-	mov buf,ax
-step2:
-	mov ax,dx
-	mov dx,0
-	mov bx,10
-	div bx
-	cmp ax,buf
-	jb 	step3
-	mov buf,ax
-step3:
-	cmp dx,buf
-	jb print
-	mov buf,dx
+	cmp dx,cx
+	ja  replace
+	cmp ax,0
+	jz print
+	jmp del
+replace:
+	mov cx,dx
+	jmp del
 print:
-	mov dx,buf
+	mov dx,cx
 	add dx,'0'
 	mov ah,02h
 int 21h
