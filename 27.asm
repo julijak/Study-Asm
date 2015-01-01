@@ -41,7 +41,9 @@ multiple proc
 	mov bx,[bp+4]
 	mul bx
 	mov sp,bp
-	pop bp	
+	pop bp 
+	pop bx
+	pop bx
 	push ax
 	push cx
 	ret

@@ -1,4 +1,4 @@
-; Вывести натуральные цифры из строки
+; Вывести строку, исключая латиницу
 .model small
 .stack 256
 .data
@@ -18,18 +18,18 @@ main:
 input:
 	mov ah,01h
 	int 21h
-	cmp al,13
+	cmp al,13 
 	jz output
 f_chk:
-	cmp al,65 ; A
+	cmp al,'A' ; A
 	jb store ; <65 - save
-	cmp al,90 ; Z
-	jnb input ; 65<al<90 - A-Z - break
+	cmp al,'Z' ; Z
+	jna input ; 65<al<=90 - A-Z - break
 s_chk:
 	cmp al,97 ; a
 	jb store  ;90<al<97 - save
 	cmp al,122 ; z
-	jnb input ; 97<al<122 - a-z - break
+	jna input ; 97<al<=122 - a-z - break
 store:
 	stosb ;> 122 - save
 	inc cx
