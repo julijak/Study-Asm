@@ -1,10 +1,10 @@
+;Вычесть 2 упакованных числа
 .model small
 .stack 256
 .data
 a1 dw 65h
 a2 dw 165h
 res dw ?
-f db 0
 .code
 main:
 	mov ax, @data
@@ -25,13 +25,7 @@ main:
 met:	 
 	xor ax,ax
 	mov al,byte ptr a1[bx]
-	sub al,f
-	mov f,0
-	cmp al,byte ptr a2[bx]
-	jnb next
-	mov f,1
-next:
-	sub al,byte ptr a2[bx]
+	sbb al,byte ptr a2[bx]
 	das
 	mov byte ptr res[bx],al    
     xor ah,ah 
