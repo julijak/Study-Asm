@@ -2,7 +2,7 @@
 .model small
 .stack 256
 .data
-num1 dw 27868
+num1 dw 2786
 .code
 main:
 	mov ax,@data	

@@ -17,7 +17,7 @@ main:
 	mov ah,01h
 input:
 	int 21h
-	cmp al,13
+	cmp al,13 ; Возврат каретки (enter)
 	je  print
 	cmp al,min
 	jnb cmp_max

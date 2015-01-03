@@ -25,7 +25,7 @@ main:
 	int 21h
 	cld
 	xor ax,ax
-	mov bx,-1
+	mov bx,-1 ; В цикле сразу инкрементируется до 0
 cycle:
 	lea si,[source+2]
 	mov cl,[source+1]

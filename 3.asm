@@ -3,7 +3,7 @@
 .stack 256
 .data
 number dw 4731
-buf db ?
+buf db 0
 fail_msg db 13,10,"Symbol not found$"
 success_msg db 13,10,"Symbol was found at position: $"
 input_msg db "Input number to search: $"
@@ -13,12 +13,11 @@ main:
 	mov ax,@data
 	mov ds,ax
 	mov cx,1
-	mov buf,0
 input:
 	lea dx,input_msg
-	mov ah,09h
+	mov ah,09h 
 	int 21h
-	mov ah,01h
+	mov ah,01h ; ввод символа с клавиатуры
 	int 21h
 	mov buf,al
 compare:

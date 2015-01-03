@@ -1,3 +1,6 @@
+/*
+Вычислить простые числа до заданного числа
+*/
 #include <iostream>
 void main()
 {
@@ -22,7 +25,7 @@ void main()
 			}
 		}
 		if (temp != 0){
-			std::cout << i << " prostoe.\n";
+			std::cout << i << "\t";
 		}
 	}
 

@@ -1,3 +1,4 @@
+; Вызвать внешнюю процедуру MessageBox
 .386 
 .model flat, stdcall 
 ExitProcess PROTO      ,:DWORD 

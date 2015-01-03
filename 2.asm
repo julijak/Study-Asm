@@ -3,15 +3,15 @@
 .stack 256
 .code
 main:
-	mov ch,1 ;пробел
+	mov ch,1 
 	mov bx,10
 output:
 	xor dx,dx
 	mov dl,ch
-	cmp ch,127 ; ~
+	cmp ch,128 
 	je exit
 print_symbol:
-	mov ah,02h
+	mov ah,02h ; вывод символа
 	int 21h	
 	mov dl,09h
 	int 21h
@@ -28,7 +28,7 @@ print_number:
 	mov ah,02h
 print:
 	pop dx
-	add dl,30h
+	add dl,30h ; '0'
 	int 21h
 	dec cl
 	cmp cl,0

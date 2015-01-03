@@ -1,3 +1,4 @@
+; Найти количество вхождений символа в строке
 .model small
 stack 256
 .data
@@ -14,7 +15,7 @@ main:
 	lea dx,input_msg_str
 	mov ah,09h
 	int 21h
-	mov ah,0ah
+	mov ah,0ah ; Ввод строки
 	lea dx, string
 	int 21h
 	mov ah,2h
@@ -27,8 +28,8 @@ main:
 	int 21h
 	mov ah,1
 	int 21h
-	lea di,[string+2]
-	mov cl,[string+1]
+	lea di,[string+2] ; Введённые символы начинаются со 2 элемента
+	mov cl,[string+1] ; Количество введённых символов
 	mov ch,0
 	inc cl
 	xor bx,bx

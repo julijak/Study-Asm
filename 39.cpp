@@ -1,8 +1,11 @@
+/*
+Вывести число пи с точностью до 5 знака
+*/
 #include <iostream>
 
 void main()
 {
-	float a = 10000000;
+	float a = 100000;
 	float y = 0;
 	__asm {
 		finit
@@ -13,6 +16,6 @@ void main()
 			fstp y
 	}
 
-	printf("%.7f", y);
+	printf("%.5f", y);
 	getchar();
 }

@@ -14,7 +14,7 @@ main:
 	push mul1
 	push mul2
 	call multiple
-	pop ax
+	pop ax ; Извлекаем результат
 	xor cx,cx
 	mov bx,10
 divide: ;вывод числа
@@ -34,18 +34,18 @@ exit:
 	mov ah,4ch
 	int 21h
 multiple proc
-	pop cx
-	push bp
-	mov bp,sp
+	pop cx ; Временно извлекаем адрес возврата
+	push bp ; Сохраняем bp
+	mov bp,sp ; Помещаем в bp указатель на вершину стека
 	mov ax,[bp+2]
 	mov bx,[bp+4]
 	mul bx
 	mov sp,bp
-	pop bp 
-	pop bx
-	pop bx
-	push ax
-	push cx
+	pop bp ; Извлекаем bp
+	pop bx ; Извлекаем параметры
+	pop bx ; -//-
+	push ax ; Помещаем результат
+	push cx ; Сохраняем адрес возврата в вершине
 	ret
 endp
 end
